@@ -8,8 +8,7 @@ This ontology was developed as part of [NFDI4Earth project](https://www.nfdi4ear
 
 Hydrological datasets are often shared in formats like CSV, which lack semantic annotations and thus pose challenges for data discovery, reuse, and automated reasoning. The **NFDI4Earth HydroOntology** addresses these challenges by:
 
-- Defining core hydrological entities (e.g., rivers, catchments, observations, sensors).
-- Linking to existing vocabularies (e.g., SOSA, QUDT, Schema.org).
+- Linking to existing vocabularies (e.g., SOSA, QUDT, EnvThes, Schema.org).
 - Supporting the semantic transformation of datasets such as **LamaH-CE**.
 - Enabling intelligent querying through **SPARQL** or integration with **question-answering systems**.
 
@@ -24,6 +23,7 @@ Hydrological datasets are often shared in formats like CSV, which lack semantic 
 - Alignments with:
   - [SOSA/SSN](https://www.w3.org/TR/vocab-ssn/): For sensor and observation modeling.
   - [QUDT](http://qudt.org/): For units and quantities.
+  - [EnvThes](https://vocabs.lter-europe.net/EnvThes/en/): For environmental related definitions. 
   - [Schema.org](https://schema.org): For general-purpose descriptions.
 - Built-in support for mapping CSV columns to ontology concepts via custom mapping configuration.
 
@@ -39,6 +39,9 @@ The ontology was used to annotate and convert the [LamaH-CE](https://github.com/
 
 - Ontology base URI: [`https://nfdi4earth.pages.rwth-aachen.de/knowledgehub/nfdi4earth-ontology/test_hyd#`](https://nfdi4earth.pages.rwth-aachen.de/knowledgehub/nfdi4earth-ontology/test_hyd#)
 - Recommended prefix: `n4e_hyd`
+
+## Acknowledgments
+This ontology is developed as part of the [NFDI4Earth](https://www.nfdi4earth.de/) initiative, aiming to advance research data management in Earth System Sciences. The project is coordinated by Technische Universität Dresden and funded by the German Research Foundation (DFG) under project number 460036893.
 
 
 
