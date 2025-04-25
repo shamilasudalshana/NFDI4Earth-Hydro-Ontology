@@ -279,14 +279,6 @@ n4e_hyd:obsend_hr rdf:type owl:DatatypeProperty ;
     rdfs:comment "Year when the continuous runoff data recording ended (use '0' if ongoing)." ;
     rdfs:range xsd:gYear .
 
-n4e:Sensor_1 gvp:aat2831_associated_with n4e_hyd:TimeSeriesHr_1 .
-
-n4e_hyd:TimeSeriesHr_1 a ifc:IfcRegularTimeSeries,
-    [ a qudt:numericValue ;
-      qudt:numericValue "1"^^xsd:decimal ;
-      qudt:unit unit:HR ] ;
-    n4e_hyd:hasObsBegTime "1996"^^xsd:gYear .
-
 n4e_hyd:hasObsBegTime rdf:type owl:DatatypeProperty ;
     rdfs:label "Starting Time of Daily Runoff Time Series" ;
     rdfs:comment "Specific date/year when the daily runoff time series begins." .
@@ -321,7 +313,121 @@ n4e_hyd:meanElevation rdf:type owl:DatatypeProperty ;
     rdfs:comment "Mean elevation of an area calculated from elevation data." ;
     rdfs:range xsd:decimal .
 
-n4e_hyd:medianElevation rdf:type rdf:Property ;
+n4e_hyd:medianElevation rdf:type rdf:DatatypeProperty ;
     rdfs:label "Median Elevation" ;
     rdfs:comment "Median elevation of an area." ;
     rdfs:range xsd
+
+# Standard Deviation of Elevation
+n4e_hyd:standardDeviationElevation a rdf:DatatypeProperty ;
+    rdfs:label "Standard Deviation of Elevation" ;
+    rdfs:comment "Standard deviation of elevation values in an area" ;
+    rdfs:range xsd:decimal .
+
+# Elevation Range
+n4e_hyd:elevationRange a rdf:DatatypeProperty ;
+    rdfs:label "Elevation Range" ;
+    rdfs:comment "Range of elevation values in an area" ;
+    rdfs:range xsd:decimal .
+
+# Mean Slope
+n4e_hyd:meanSlope a rdf:DatatypeProperty ;
+    rdfs:label "Mean Slope" ;
+    rdfs:comment "Mean slope of a defined area, such as a catchment" ;
+    rdfs:range xsd:decimal .
+
+# Precipitation Seasonality (first definition)
+n4e_hyd:precipitationSeasonality a rdf:DatatypeProperty ;
+    rdfs:label "Precipitation Seasonality" ;
+    rdfs:comment "Seasonality and timing of precipitation, estimated using sine curves, to represent the annual precipitation cycles" ;
+    rdfs:range xsd:decimal .
+
+# Elongation Ratio
+n4e_hyd:elon_ratio a owl:DatatypeProperty ;
+    rdfs:label "Elongation Ratio" ;
+    rdfs:comment "Ratio between the diameter of an equivalent circle and the area of the catchment area to its length, Re = D/L = (4 × A / π)^(1/2)/L" ;
+    rdfs:range xsd:decimal .
+
+# Stream Density\ n4e_hyd:has_Strm_density a owl:DatatypeProperty ;
+    rdfs:label "Stream Density" ;
+    rdfs:comment "Ratio of lengths of streams L_F and the catchment area A, D_F = ΣL_F/A" ;
+    rdfs:domain envthes:30212 ;
+    rdfs:range xsd:decimal .
+
+# Precipitation seasonality (second definition)
+n4e_hyd:has_p_season a owl:DatatypeProperty ;
+    rdfs:label "Precipitation Seasonality" ;
+    rdfs:comment "Seasonality and timing of precipitation (estimated using sine curves) to represent the annual precipitation cycles; positive (negative) values indicate that precipitation sums are higher during summer (winter) months; values close to 0 indicate uniform precipitation" ;
+    rdfs:domain envthes:60037 ;
+    rdfs:range xsd:decimal .
+
+# Mean Daily Precipitation
+n4e_hyd:hasMeanDailyPrecip a owl:DatatypeProperty ;
+    rdfs:label "Mean daily precipitation" ;
+    rdfs:comment "Long term average of daily precipitation for a particular location or area" ;
+    rdfs:domain m3lite:Precipitation ;
+    rdfs:range xsd:decimal .
+
+# Mean Daily Evapotranspiration
+n4e_hyd:hasMeanEvapotranspiration a owl:DatatypeProperty ;
+    rdfs:label "Mean daily evapotranspiration" ;
+    rdfs:comment "Long term average of daily total evapotranspiration for a particular location or area" ;
+    rdfs:domain envthes:21299 ;
+    rdfs:range xsd:decimal .
+
+# Reference Evapotranspiration Concept
+n4e_hyd:ReferenceEvapotranspiration a skos:Concept ;
+    rdfs:label "Reference Evapotranspiration" ;
+    rdfs:comment "The amount of water that would evaporate and transpire from a well-irrigated, large, and uniform vegetated surface under specific meteorological conditions" ;
+    skos:broader envthes:21243 .
+
+# Reference Evapotranspiration Data Property
+n4e_hyd:hasReferenceEvapotranspiration a owl:DatatypeProperty ;
+    rdfs:label "Reference evapotranspiration" ;
+    rdfs:comment "Long term average of daily reference evapotranspiration for a particular location or area" ;
+    rdfs:domain n4e_hyd:ReferenceEvapotranspiration ;
+    rdfs:range xsd:decimal .
+
+# Aridity Index
+n4e_hyd:hasAridityIndex a owl:DatatypeProperty ;
+    rdfs:label "Aridity Index" ;
+    rdfs:comment "Aridity, computed as the ratio of mean reference evapotranspiration and mean precipitation" ;
+    rdfs:range xsd:decimal .
+
+# Reciprocal Aridity Index
+n4e_hyd:hasReciprocalAridityIndex a owl:DatatypeProperty ;
+    rdfs:label "Reciprocal Aridity Index" ;
+    rdfs:comment "Reciprocal value of aridity index from Climate Database" ;
+    rdfs:range xsd:decimal .
+
+# Snow Fraction
+n4e_hyd:hasSnowFraction a owl:DatatypeProperty ;
+    rdfs:label "Snow fraction" ;
+    rdfs:comment "Fraction of precipitation falling as snow, i.e. falling on days with mean temperature below 0 °C" ;
+    rdfs:domain m3lite:Precipitation ;
+    rdfs:range xsd:decimal .
+
+# High Precipitation Frequency
+n4e_hyd:hasHighPrecFrequncy a owl:DatatypeProperty ;
+    rdfs:label "High precipitation frequency" ;
+    rdfs:comment "Frequency of high-precipitation days (≥5 times mean daily precipitation)" ;
+    rdfs:range xsd:decimal .
+
+# High Precipitation Duration
+n4e_hyd:hasHighPrecipitationDuration a owl:DatatypeProperty ;
+    rdfs:label "High precipitation duration" ;
+    rdfs:comment "Mean duration of high-precipitation events (number of consecutive days with ≥5 times mean daily precipitation)" ;
+    rdfs:range xsd:decimal .
+
+# Low Precipitation Frequency
+n4e_hyd:hasLowPrecFrequency a owl:DatatypeProperty ;
+    rdfs:label "Low precipitation frequency" ;
+    rdfs:comment "Frequency of dry days (<1 mm d-1 daily average precipitation)" ;
+    rdfs:range xsd:decimal .
+
+# Low Precipitation Duration
+n4e_hyd:hasLowPrecipitationDuration a owl:DatatypeProperty ;
+    rdfs:label "Low precipitation duration" ;
+    rdfs:comment "Mean duration of dry periods (number of consecutive days with <1 mm d-1 daily average precipitation)" ;
+    rdfs:
+
