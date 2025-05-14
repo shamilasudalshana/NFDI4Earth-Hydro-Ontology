@@ -1,0 +1,173 @@
+id: https://nfdi4earth.pages.rwth-aachen.de/knowledgehub/nfdi4earth-ontology/test_hyd
+name: NFDI4EarthHydroOntology
+description: Ontology for hydrological variables and time series data, converted to
+  LinkML.
+prefixes:
+  n4e_hyd: https://nfdi4earth.pages.rwth-aachen.de/knowledgehub/nfdi4earth-ontology/test_hyd#
+  linkml: https://w3id.org/linkml/
+default_prefix: n4e_hyd
+imports:
+- linkml:types
+classes:
+  AirTemperature2m:
+    description: Air temperature at a height of 2 m above Earth surface
+    class_uri: n4e_hyd:AirTemperature2m
+  AirTemperature2mMax:
+    description: Air temperature at a height of 2 m above Earth surface (Maximum)
+    class_uri: n4e_hyd:AirTemperature2mMax
+    is_a: AirTemperature2m
+  AirTemperature2mMin:
+    description: Air temperature at a height of 2 m above Earth surface (Minimum)
+    class_uri: n4e_hyd:AirTemperature2mMin
+    is_a: AirTemperature2m
+  AirTemperature2mAvg:
+    description: Air temperature at a height of 2 m above Earth surface (Average)
+    class_uri: n4e_hyd:AirTemperature2mAvg
+    is_a: AirTemperature2m
+  DewPointTemperature2m:
+    description: Dew point temperature at a height of 2 m above Earth surface
+    class_uri: n4e_hyd:DewPointTemperature2m
+  DewPointTemperature2mMax:
+    description: Dew point temperature at a height of 2 m above Earth surface (Maximum)
+    class_uri: n4e_hyd:DewPointTemperature2mMax
+    is_a: DewPointTemperature2m
+  DewPointTemperature2mAvg:
+    description: Dew point temperature at a height of 2 m above Earth surface (Average)
+    class_uri: n4e_hyd:DewPointTemperature2mAvg
+    is_a: DewPointTemperature2m
+  DewPointTemperature2mMin:
+    description: Dew point temperature at a height of 2 m above Earth surface (Minimum)
+    class_uri: n4e_hyd:DewPointTemperature2mMin
+    is_a: DewPointTemperature2m
+  WindSpeedEast10m:
+    description: Horizontal speed of air moving towards the east at a height of 10
+      m above Earth surface
+    class_uri: n4e_hyd:WindSpeedEast10m
+  WindSpeedNorth10m:
+    description: Vertical speed of air moving towards the north at a height of 10
+      m above Earth surface
+    class_uri: n4e_hyd:WindSpeedNorth10m
+  ForecastAlbedo:
+    description: Forecast albedo
+    class_uri: n4e_hyd:ForecastAlbedo
+  HighVegetationGreenLeafArea:
+    description: One-half of the total green leaf area for high-vegetation type
+    class_uri: n4e_hyd:HighVegetationGreenLeafArea
+  LowVegetationGreenLeafArea:
+    description: One-half of the total green leaf area for low-vegetation type
+    class_uri: n4e_hyd:LowVegetationGreenLeafArea
+  SurfaceNetSolarRadiation:
+    description: Surface Net Solar Radiation
+    class_uri: n4e_hyd:SurfaceNetSolarRadiation
+  SurfaceNetSolarRadiationMax:
+    description: Surface Net Solar Radiation (Maximum)
+    class_uri: n4e_hyd:SurfaceNetSolarRadiationMax
+    is_a: SurfaceNetSolarRadiation
+  SurfaceNetSolarRadiationAvg:
+    description: Surface Net Solar Radiation (Average)
+    class_uri: n4e_hyd:SurfaceNetSolarRadiationAvg
+    is_a: SurfaceNetSolarRadiation
+  SurfaceNetSolarRadiationMin:
+    description: Surface Net Solar Radiation (Minimum)
+    class_uri: n4e_hyd:SurfaceNetSolarRadiationMin
+    is_a: SurfaceNetSolarRadiation
+  SurfaceNetThermalRadiation:
+    description: Surface Net Thermal Radiation
+    class_uri: n4e_hyd:SurfaceNetThermalRadiation
+  SurfaceNetThermalRadiationMax:
+    description: Surface Net Thermal Radiation (Maximum)
+    class_uri: n4e_hyd:SurfaceNetThermalRadiationMax
+    is_a: SurfaceNetThermalRadiation
+  SurfaceNetThermalRadiationAvg:
+    description: Surface Net Thermal Radiation (Average)
+    class_uri: n4e_hyd:SurfaceNetThermalRadiationAvg
+    is_a: SurfaceNetThermalRadiation
+  SurfaceNetThermalRadiationMin:
+    description: Surface Net Thermal Radiation (Minimum)
+    class_uri: n4e_hyd:SurfaceNetThermalRadiationMin
+    is_a: SurfaceNetThermalRadiation
+  WaterFractionTopsoil:
+    description: Water Fraction in Topsoil Layer
+    class_uri: n4e_hyd:WaterFractionTopsoil
+  WaterFractionSubsoil:
+    description: Water Fraction in Subsoil Layer
+    class_uri: n4e_hyd:WaterFractionSubsoil
+  GovnrID:
+    description: Government ID
+    class_uri: n4e_hyd:GovnrID
+slots:
+  issueID:
+    slot_uri: n4e_hyd:issueID
+    range: GovnrID
+    description: Official gauge number from the associated governments.
+    title: Issue i d
+  hasRiverBasedRegion:
+    title: River-based region
+    slot_uri: n4e_hyd:hasRiverBasedRegion
+    range: string
+    description: Name of the river-based region
+  has_mvert_dist:
+    slot_uri: n4e_hyd:has_mvert_dist
+    range: string
+    description: Longest distance from the gauge
+    title: Longest distance from the gauge
+  has_mvert_ang:
+    slot_uri: n4e_hyd:has_mvert_ang
+    range: decimal
+    description: Angle to farthest point of the catchment
+    title: Has mvert ang
+  hasCatchment:
+    slot_uri: n4e_hyd:hasCatchment
+    range: string
+    description: has Catchment
+    title: has Catchment
+  observesArea:
+    slot_uri: n4e_hyd:observesArea
+    range: string
+    description: observes area
+    title: observes area
+  hasHighPrecipitationSeason:
+    slot_uri: n4e_hyd:hasHighPrecipitationSeason
+    range: string
+    description: has High precipitation season
+    title: has High precipitation season
+  hasLowPrecipitationSeason:
+    slot_uri: n4e_hyd:hasLowPrecipitationSeason
+    range: string
+    description: has Low precipitation season
+    title: has Low precipitation season
+  hasDominantLandUse:
+    slot_uri: n4e_hyd:hasDominantLandUse
+    range: string
+    description: Dominant land use type
+    title: Dominant land use type
+  hasSoil:
+    slot_uri: n4e_hyd:hasSoil
+    range: string
+    description: Connects an area or point to its soil
+    title: Has soil
+  hasSoilPorosity:
+    slot_uri: n4e_hyd:hasSoilPorosity
+    range: string
+    description: Soil porosity
+    title: Soil porosity
+  hasSaturatedHydraulicConductivity:
+    slot_uri: n4e_hyd:hasSaturatedHydraulicConductivity
+    range: string
+    description: has Saturated Hydraulic Conductivity
+    title: has Saturated Hydraulic Conductivity
+  hasSoilTexture:
+    slot_uri: n4e_hyd:hasSoilTexture
+    range: string
+    description: has soil texture
+    title: has soil texture
+  hasDominantGeologicalClass:
+    slot_uri: n4e_hyd:hasDominantGeologicalClass
+    range: string
+    description: Has Dominant Geological Class
+    title: Has Dominant Geological Class
+  producesTimeseries:
+    slot_uri: n4e_hyd:producesTimeseries
+    range: string
+    description: has Time Series
+    title: has Time Series
