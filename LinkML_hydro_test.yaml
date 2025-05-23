@@ -1,10 +1,12 @@
 id: https://nfdi4earth.pages.rwth-aachen.de/knowledgehub/nfdi4earth-ontology/test_hyd
 name: NFDI4EarthHydroOntology
-description: Ontology for hydrological variables and time series data, converted to
+description: Ontology for hydrological obersvation variables and time series data, converted to
   LinkML.
 prefixes:
   hyobs : https://nfdi4earth.pages.rwth-aachen.de/knowledgehub/nfdi4earth-ontology/test_hyd#
   linkml: https://w3id.org/linkml/
+  envthes: http://vocabs.lter-europe.net/EnvThes/
+  sosa: http://www.w3.org/ns/sosa/
 default_prefix: hyobs 
 imports:
 - linkml:types
@@ -48,7 +50,7 @@ classes:
       m above Earth surface
     class_uri: hyobs:WindSpeedNorth10m
   ForecastAlbedo:
-    description: Forecast albedo
+    description: Class representing observations of forecast albedo, which is the fraction of solar (shortwave) radiation reflected by Earth's surface (direct and diffuse)
     class_uri: hyobs:ForecastAlbedo
   HighVegetationGreenLeafArea:
     description: One-half of the total green leaf area for high-vegetation type
@@ -57,7 +59,7 @@ classes:
     description: One-half of the total green leaf area for low-vegetation type
     class_uri: hyobs:LowVegetationGreenLeafArea
   SurfaceNetSolarRadiation:
-    description: Surface Net Solar Radiation
+    description: Class representing observations of surface net solar radiation, i.e., the amount of solar radiation reaching the Earth's surface minus the amount reflected by the Earth's surface (governed by albedo); positive sign is an indicator for radiation to the Earth
     class_uri: hyobs:SurfaceNetSolarRadiation
   SurfaceNetSolarRadiationMax:
     description: Surface Net Solar Radiation (Maximum)
@@ -72,7 +74,7 @@ classes:
     class_uri: hyobs:SurfaceNetSolarRadiationMin
     is_a: SurfaceNetSolarRadiation
   SurfaceNetThermalRadiation:
-    description: Surface Net Thermal Radiation
+    description: Class representing observations of surface thermal radiation, i.e., net thermal radiation at the Earth's surface; positive sign is an indicator for radiation from the Earth.
     class_uri: hyobs:SurfaceNetThermalRadiation
   SurfaceNetThermalRadiationMax:
     description: Surface Net Thermal Radiation (Maximum)
@@ -87,14 +89,28 @@ classes:
     class_uri: hyobs:SurfaceNetThermalRadiationMin
     is_a: SurfaceNetThermalRadiation
   WaterFractionTopsoil:
-    description: Water Fraction in Topsoil Layer
+    description: Class representing observations of the fraction of water in the topsoil layer at a depth of 0 to 100 cm.
     class_uri: hyobs:WaterFractionTopsoil
   WaterFractionSubsoil:
-    description: Water Fraction in Subsoil Layer
+    description: Class representing observations of the fraction of water in the subsoil layer at a depth of 100 to 289 cm.
     class_uri: hyobs:WaterFractionSubsoil
   GovnrID:
     description: Government ID
     class_uri: hyobs:GovnrID
+  envthes:10092: # catchment 
+    slots:
+      - hasRiverBasedRegion
+      - has_mvert_dist
+      - has_mvert_ang
+      - hasHighPrecipitationSeason
+      - hasLowPrecipitationSeason
+      - hasDominantLandUse
+  sosa:Sensor: 
+    slots:
+      - producesTimeseries
+      - monitorsCatchment
+
+
 slots:
   issueID:
     slot_uri: hyobs:issueID
@@ -116,16 +132,11 @@ slots:
     range: decimal
     description: Angle to farthest point of the catchment
     title: Has mvert ang
-  hasCatchment:
-    slot_uri: hyobs:hasCatchment
-    range: string
-    description: has Catchment
-    title: has Catchment
-  observesArea:
-    slot_uri: hyobs:observesArea
-    range: string
-    description: observes area
-    title: observes area
+  monitorsCatchment:
+    slot_uri: hyobs:monitorsCatchment
+    range: envthes:10092
+    description: Relates a sensor or gauge to a catchment area it monitors
+    title: monitors Catchment
   hasHighPrecipitationSeason:
     slot_uri: hyobs:hasHighPrecipitationSeason
     range: string
@@ -153,7 +164,7 @@ slots:
     title: Soil porosity
   hasSaturatedHydraulicConductivity:
     slot_uri: hyobs:hasSaturatedHydraulicConductivity
-    range: string
+    range: decimal
     description: has Saturated Hydraulic Conductivity
     title: has Saturated Hydraulic Conductivity
   hasSoilTexture:

@@ -1,0 +1,346 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix hyobs: <https://nfdi4earth.pages.rwth-aachen.de/knowledgehub/nfdi4earth-ontology/test_hyd#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+hyobs:hasDominantGeologicalClass a owl:DatatypeProperty ;
+    rdfs:label "hasDominantGeologicalClass" ;
+    dcterms:title "Has Dominant Geological Class" ;
+    rdfs:range xsd:string ;
+    skos:definition "Has Dominant Geological Class" ;
+    skos:inScheme <https://nfdi4earth.pages.rwth-aachen.de/knowledgehub/nfdi4earth-ontology/test_hyd> .
+
+hyobs:hasSaturatedHydraulicConductivity a owl:DatatypeProperty ;
+    rdfs:label "hasSaturatedHydraulicConductivity" ;
+    dcterms:title "has Saturated Hydraulic Conductivity" ;
+    rdfs:range xsd:decimal ;
+    skos:definition "has Saturated Hydraulic Conductivity" ;
+    skos:inScheme <https://nfdi4earth.pages.rwth-aachen.de/knowledgehub/nfdi4earth-ontology/test_hyd> .
+
+hyobs:hasSoil a owl:DatatypeProperty ;
+    rdfs:label "hasSoil" ;
+    dcterms:title "Has soil" ;
+    rdfs:range xsd:string ;
+    skos:definition "Connects an area or point to its soil" ;
+    skos:inScheme <https://nfdi4earth.pages.rwth-aachen.de/knowledgehub/nfdi4earth-ontology/test_hyd> .
+
+hyobs:hasSoilPorosity a owl:DatatypeProperty ;
+    rdfs:label "hasSoilPorosity" ;
+    dcterms:title "Soil porosity" ;
+    rdfs:range xsd:string ;
+    skos:definition "Soil porosity" ;
+    skos:inScheme <https://nfdi4earth.pages.rwth-aachen.de/knowledgehub/nfdi4earth-ontology/test_hyd> .
+
+hyobs:hasSoilTexture a owl:DatatypeProperty ;
+    rdfs:label "hasSoilTexture" ;
+    dcterms:title "has soil texture" ;
+    rdfs:range xsd:string ;
+    skos:definition "has soil texture" ;
+    skos:inScheme <https://nfdi4earth.pages.rwth-aachen.de/knowledgehub/nfdi4earth-ontology/test_hyd> .
+
+hyobs:issueID a owl:ObjectProperty ;
+    rdfs:label "issueID" ;
+    dcterms:title "Issue i d" ;
+    rdfs:range hyobs:GovnrID ;
+    skos:definition "Official gauge number from the associated governments." ;
+    skos:inScheme <https://nfdi4earth.pages.rwth-aachen.de/knowledgehub/nfdi4earth-ontology/test_hyd> .
+
+<https://nfdi4earth.pages.rwth-aachen.de/knowledgehub/nfdi4earth-ontology/test_hyd.owl.ttl> a owl:Ontology ;
+    rdfs:label "NFDI4EarthHydroOntology" ;
+    skos:definition "Ontology for hydrological obersvation variables and time series data, converted to LinkML." .
+
+<hyobs:Sosa:Sensor> a owl:Class ;
+    rdfs:label "sosa:Sensor" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty hyobs:producesTimeseries ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty hyobs:monitorsCatchment ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty hyobs:monitorsCatchment ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty hyobs:producesTimeseries ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <hyobs:Envthes:10092> ;
+            owl:onProperty hyobs:monitorsCatchment ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty hyobs:producesTimeseries ] ;
+    skos:inScheme <https://nfdi4earth.pages.rwth-aachen.de/knowledgehub/nfdi4earth-ontology/test_hyd> .
+
+hyobs:AirTemperature2mAvg a owl:Class ;
+    rdfs:label "AirTemperature2mAvg" ;
+    rdfs:subClassOf hyobs:AirTemperature2m ;
+    skos:definition "Air temperature at a height of 2 m above Earth surface (Average)" ;
+    skos:exactMatch hyobs:AirTemperature2mAvg ;
+    skos:inScheme <https://nfdi4earth.pages.rwth-aachen.de/knowledgehub/nfdi4earth-ontology/test_hyd> .
+
+hyobs:AirTemperature2mMax a owl:Class ;
+    rdfs:label "AirTemperature2mMax" ;
+    rdfs:subClassOf hyobs:AirTemperature2m ;
+    skos:definition "Air temperature at a height of 2 m above Earth surface (Maximum)" ;
+    skos:exactMatch hyobs:AirTemperature2mMax ;
+    skos:inScheme <https://nfdi4earth.pages.rwth-aachen.de/knowledgehub/nfdi4earth-ontology/test_hyd> .
+
+hyobs:AirTemperature2mMin a owl:Class ;
+    rdfs:label "AirTemperature2mMin" ;
+    rdfs:subClassOf hyobs:AirTemperature2m ;
+    skos:definition "Air temperature at a height of 2 m above Earth surface (Minimum)" ;
+    skos:exactMatch hyobs:AirTemperature2mMin ;
+    skos:inScheme <https://nfdi4earth.pages.rwth-aachen.de/knowledgehub/nfdi4earth-ontology/test_hyd> .
+
+hyobs:DewPointTemperature2mAvg a owl:Class ;
+    rdfs:label "DewPointTemperature2mAvg" ;
+    rdfs:subClassOf hyobs:DewPointTemperature2m ;
+    skos:definition "Dew point temperature at a height of 2 m above Earth surface (Average)" ;
+    skos:exactMatch hyobs:DewPointTemperature2mAvg ;
+    skos:inScheme <https://nfdi4earth.pages.rwth-aachen.de/knowledgehub/nfdi4earth-ontology/test_hyd> .
+
+hyobs:DewPointTemperature2mMax a owl:Class ;
+    rdfs:label "DewPointTemperature2mMax" ;
+    rdfs:subClassOf hyobs:DewPointTemperature2m ;
+    skos:definition "Dew point temperature at a height of 2 m above Earth surface (Maximum)" ;
+    skos:exactMatch hyobs:DewPointTemperature2mMax ;
+    skos:inScheme <https://nfdi4earth.pages.rwth-aachen.de/knowledgehub/nfdi4earth-ontology/test_hyd> .
+
+hyobs:DewPointTemperature2mMin a owl:Class ;
+    rdfs:label "DewPointTemperature2mMin" ;
+    rdfs:subClassOf hyobs:DewPointTemperature2m ;
+    skos:definition "Dew point temperature at a height of 2 m above Earth surface (Minimum)" ;
+    skos:exactMatch hyobs:DewPointTemperature2mMin ;
+    skos:inScheme <https://nfdi4earth.pages.rwth-aachen.de/knowledgehub/nfdi4earth-ontology/test_hyd> .
+
+hyobs:ForecastAlbedo a owl:Class ;
+    rdfs:label "ForecastAlbedo" ;
+    skos:definition "Class representing observations of forecast albedo, which is the fraction of solar (shortwave) radiation reflected by Earth's surface (direct and diffuse)" ;
+    skos:exactMatch hyobs:ForecastAlbedo ;
+    skos:inScheme <https://nfdi4earth.pages.rwth-aachen.de/knowledgehub/nfdi4earth-ontology/test_hyd> .
+
+hyobs:HighVegetationGreenLeafArea a owl:Class ;
+    rdfs:label "HighVegetationGreenLeafArea" ;
+    skos:definition "One-half of the total green leaf area for high-vegetation type" ;
+    skos:exactMatch hyobs:HighVegetationGreenLeafArea ;
+    skos:inScheme <https://nfdi4earth.pages.rwth-aachen.de/knowledgehub/nfdi4earth-ontology/test_hyd> .
+
+hyobs:LowVegetationGreenLeafArea a owl:Class ;
+    rdfs:label "LowVegetationGreenLeafArea" ;
+    skos:definition "One-half of the total green leaf area for low-vegetation type" ;
+    skos:exactMatch hyobs:LowVegetationGreenLeafArea ;
+    skos:inScheme <https://nfdi4earth.pages.rwth-aachen.de/knowledgehub/nfdi4earth-ontology/test_hyd> .
+
+hyobs:SurfaceNetSolarRadiationAvg a owl:Class ;
+    rdfs:label "SurfaceNetSolarRadiationAvg" ;
+    rdfs:subClassOf hyobs:SurfaceNetSolarRadiation ;
+    skos:definition "Surface Net Solar Radiation (Average)" ;
+    skos:exactMatch hyobs:SurfaceNetSolarRadiationAvg ;
+    skos:inScheme <https://nfdi4earth.pages.rwth-aachen.de/knowledgehub/nfdi4earth-ontology/test_hyd> .
+
+hyobs:SurfaceNetSolarRadiationMax a owl:Class ;
+    rdfs:label "SurfaceNetSolarRadiationMax" ;
+    rdfs:subClassOf hyobs:SurfaceNetSolarRadiation ;
+    skos:definition "Surface Net Solar Radiation (Maximum)" ;
+    skos:exactMatch hyobs:SurfaceNetSolarRadiationMax ;
+    skos:inScheme <https://nfdi4earth.pages.rwth-aachen.de/knowledgehub/nfdi4earth-ontology/test_hyd> .
+
+hyobs:SurfaceNetSolarRadiationMin a owl:Class ;
+    rdfs:label "SurfaceNetSolarRadiationMin" ;
+    rdfs:subClassOf hyobs:SurfaceNetSolarRadiation ;
+    skos:definition "Surface Net Solar Radiation (Minimum)" ;
+    skos:exactMatch hyobs:SurfaceNetSolarRadiationMin ;
+    skos:inScheme <https://nfdi4earth.pages.rwth-aachen.de/knowledgehub/nfdi4earth-ontology/test_hyd> .
+
+hyobs:SurfaceNetThermalRadiationAvg a owl:Class ;
+    rdfs:label "SurfaceNetThermalRadiationAvg" ;
+    rdfs:subClassOf hyobs:SurfaceNetThermalRadiation ;
+    skos:definition "Surface Net Thermal Radiation (Average)" ;
+    skos:exactMatch hyobs:SurfaceNetThermalRadiationAvg ;
+    skos:inScheme <https://nfdi4earth.pages.rwth-aachen.de/knowledgehub/nfdi4earth-ontology/test_hyd> .
+
+hyobs:SurfaceNetThermalRadiationMax a owl:Class ;
+    rdfs:label "SurfaceNetThermalRadiationMax" ;
+    rdfs:subClassOf hyobs:SurfaceNetThermalRadiation ;
+    skos:definition "Surface Net Thermal Radiation (Maximum)" ;
+    skos:exactMatch hyobs:SurfaceNetThermalRadiationMax ;
+    skos:inScheme <https://nfdi4earth.pages.rwth-aachen.de/knowledgehub/nfdi4earth-ontology/test_hyd> .
+
+hyobs:SurfaceNetThermalRadiationMin a owl:Class ;
+    rdfs:label "SurfaceNetThermalRadiationMin" ;
+    rdfs:subClassOf hyobs:SurfaceNetThermalRadiation ;
+    skos:definition "Surface Net Thermal Radiation (Minimum)" ;
+    skos:exactMatch hyobs:SurfaceNetThermalRadiationMin ;
+    skos:inScheme <https://nfdi4earth.pages.rwth-aachen.de/knowledgehub/nfdi4earth-ontology/test_hyd> .
+
+hyobs:WaterFractionSubsoil a owl:Class ;
+    rdfs:label "WaterFractionSubsoil" ;
+    skos:definition "Class representing observations of the fraction of water in the subsoil layer at a depth of 100 to 289 cm." ;
+    skos:exactMatch hyobs:WaterFractionSubsoil ;
+    skos:inScheme <https://nfdi4earth.pages.rwth-aachen.de/knowledgehub/nfdi4earth-ontology/test_hyd> .
+
+hyobs:WaterFractionTopsoil a owl:Class ;
+    rdfs:label "WaterFractionTopsoil" ;
+    skos:definition "Class representing observations of the fraction of water in the topsoil layer at a depth of 0 to 100 cm." ;
+    skos:exactMatch hyobs:WaterFractionTopsoil ;
+    skos:inScheme <https://nfdi4earth.pages.rwth-aachen.de/knowledgehub/nfdi4earth-ontology/test_hyd> .
+
+hyobs:WindSpeedEast10m a owl:Class ;
+    rdfs:label "WindSpeedEast10m" ;
+    skos:definition "Horizontal speed of air moving towards the east at a height of 10 m above Earth surface" ;
+    skos:exactMatch hyobs:WindSpeedEast10m ;
+    skos:inScheme <https://nfdi4earth.pages.rwth-aachen.de/knowledgehub/nfdi4earth-ontology/test_hyd> .
+
+hyobs:WindSpeedNorth10m a owl:Class ;
+    rdfs:label "WindSpeedNorth10m" ;
+    skos:definition "Vertical speed of air moving towards the north at a height of 10 m above Earth surface" ;
+    skos:exactMatch hyobs:WindSpeedNorth10m ;
+    skos:inScheme <https://nfdi4earth.pages.rwth-aachen.de/knowledgehub/nfdi4earth-ontology/test_hyd> .
+
+hyobs:GovnrID a owl:Class ;
+    rdfs:label "GovnrID" ;
+    skos:definition "Government ID" ;
+    skos:exactMatch hyobs:GovnrID ;
+    skos:inScheme <https://nfdi4earth.pages.rwth-aachen.de/knowledgehub/nfdi4earth-ontology/test_hyd> .
+
+<hyobs:Envthes:10092> a owl:Class ;
+    rdfs:label "envthes:10092" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty hyobs:has_mvert_ang ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty hyobs:hasLowPrecipitationSeason ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty hyobs:hasHighPrecipitationSeason ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty hyobs:hasRiverBasedRegion ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty hyobs:hasLowPrecipitationSeason ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty hyobs:hasHighPrecipitationSeason ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty hyobs:hasDominantLandUse ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty hyobs:hasLowPrecipitationSeason ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty hyobs:has_mvert_dist ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty hyobs:hasHighPrecipitationSeason ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty hyobs:has_mvert_dist ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty hyobs:hasRiverBasedRegion ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:decimal ;
+            owl:onProperty hyobs:has_mvert_ang ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty hyobs:has_mvert_dist ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty hyobs:hasDominantLandUse ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty hyobs:has_mvert_ang ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty hyobs:hasDominantLandUse ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty hyobs:hasRiverBasedRegion ] ;
+    skos:inScheme <https://nfdi4earth.pages.rwth-aachen.de/knowledgehub/nfdi4earth-ontology/test_hyd> .
+
+hyobs:hasDominantLandUse a owl:DatatypeProperty ;
+    rdfs:label "hasDominantLandUse" ;
+    dcterms:title "Dominant land use type" ;
+    rdfs:range xsd:string ;
+    skos:definition "Dominant land use type" ;
+    skos:inScheme <https://nfdi4earth.pages.rwth-aachen.de/knowledgehub/nfdi4earth-ontology/test_hyd> .
+
+hyobs:hasHighPrecipitationSeason a owl:DatatypeProperty ;
+    rdfs:label "hasHighPrecipitationSeason" ;
+    dcterms:title "has High precipitation season" ;
+    rdfs:range xsd:string ;
+    skos:definition "has High precipitation season" ;
+    skos:inScheme <https://nfdi4earth.pages.rwth-aachen.de/knowledgehub/nfdi4earth-ontology/test_hyd> .
+
+hyobs:hasLowPrecipitationSeason a owl:DatatypeProperty ;
+    rdfs:label "hasLowPrecipitationSeason" ;
+    dcterms:title "has Low precipitation season" ;
+    rdfs:range xsd:string ;
+    skos:definition "has Low precipitation season" ;
+    skos:inScheme <https://nfdi4earth.pages.rwth-aachen.de/knowledgehub/nfdi4earth-ontology/test_hyd> .
+
+hyobs:hasRiverBasedRegion a owl:DatatypeProperty ;
+    rdfs:label "hasRiverBasedRegion" ;
+    dcterms:title "River-based region" ;
+    rdfs:range xsd:string ;
+    skos:definition "Name of the river-based region" ;
+    skos:inScheme <https://nfdi4earth.pages.rwth-aachen.de/knowledgehub/nfdi4earth-ontology/test_hyd> .
+
+hyobs:has_mvert_ang a owl:DatatypeProperty ;
+    rdfs:label "has_mvert_ang" ;
+    dcterms:title "Has mvert ang" ;
+    rdfs:range xsd:decimal ;
+    skos:definition "Angle to farthest point of the catchment" ;
+    skos:inScheme <https://nfdi4earth.pages.rwth-aachen.de/knowledgehub/nfdi4earth-ontology/test_hyd> .
+
+hyobs:has_mvert_dist a owl:DatatypeProperty ;
+    rdfs:label "has_mvert_dist" ;
+    dcterms:title "Longest distance from the gauge" ;
+    rdfs:range xsd:string ;
+    skos:definition "Longest distance from the gauge" ;
+    skos:inScheme <https://nfdi4earth.pages.rwth-aachen.de/knowledgehub/nfdi4earth-ontology/test_hyd> .
+
+hyobs:monitorsCatchment a owl:ObjectProperty ;
+    rdfs:label "monitorsCatchment" ;
+    dcterms:title "monitors Catchment" ;
+    rdfs:range <hyobs:Envthes:10092> ;
+    skos:definition "Relates a sensor or gauge to a catchment area it monitors" ;
+    skos:inScheme <https://nfdi4earth.pages.rwth-aachen.de/knowledgehub/nfdi4earth-ontology/test_hyd> .
+
+hyobs:producesTimeseries a owl:DatatypeProperty ;
+    rdfs:label "producesTimeseries" ;
+    dcterms:title "has Time Series" ;
+    rdfs:range xsd:string ;
+    skos:definition "has Time Series" ;
+    skos:inScheme <https://nfdi4earth.pages.rwth-aachen.de/knowledgehub/nfdi4earth-ontology/test_hyd> .
+
+hyobs:AirTemperature2m a owl:Class ;
+    rdfs:label "AirTemperature2m" ;
+    skos:definition "Air temperature at a height of 2 m above Earth surface" ;
+    skos:exactMatch hyobs:AirTemperature2m ;
+    skos:inScheme <https://nfdi4earth.pages.rwth-aachen.de/knowledgehub/nfdi4earth-ontology/test_hyd> .
+
+hyobs:DewPointTemperature2m a owl:Class ;
+    rdfs:label "DewPointTemperature2m" ;
+    skos:definition "Dew point temperature at a height of 2 m above Earth surface" ;
+    skos:exactMatch hyobs:DewPointTemperature2m ;
+    skos:inScheme <https://nfdi4earth.pages.rwth-aachen.de/knowledgehub/nfdi4earth-ontology/test_hyd> .
+
+hyobs:SurfaceNetSolarRadiation a owl:Class ;
+    rdfs:label "SurfaceNetSolarRadiation" ;
+    skos:definition "Class representing observations of surface net solar radiation, i.e., the amount of solar radiation reaching the Earth's surface minus the amount reflected by the Earth's surface (governed by albedo); positive sign is an indicator for radiation to the Earth" ;
+    skos:exactMatch hyobs:SurfaceNetSolarRadiation ;
+    skos:inScheme <https://nfdi4earth.pages.rwth-aachen.de/knowledgehub/nfdi4earth-ontology/test_hyd> .
+
+hyobs:SurfaceNetThermalRadiation a owl:Class ;
+    rdfs:label "SurfaceNetThermalRadiation" ;
+    skos:definition "Class representing observations of surface thermal radiation, i.e., net thermal radiation at the Earth's surface; positive sign is an indicator for radiation from the Earth." ;
+    skos:exactMatch hyobs:SurfaceNetThermalRadiation ;
+    skos:inScheme <https://nfdi4earth.pages.rwth-aachen.de/knowledgehub/nfdi4earth-ontology/test_hyd> .
+
+
